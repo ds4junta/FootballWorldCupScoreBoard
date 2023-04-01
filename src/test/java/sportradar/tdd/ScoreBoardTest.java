@@ -61,8 +61,7 @@ public class ScoreBoardTest {
 		System.out.println("");
 	}
 
-	// Comprobar que tras finalizar el partido, el partido desaparece de la tabla de
-	// resultados
+	// Comprobar que tras actualizar el resultado del partido, la tabla de marcadores se encuentra actualizada
 	@Test
 	public void actualizarResultado() {
 		System.out.println("Test actualizarResultado()");
