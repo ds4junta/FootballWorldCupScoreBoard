@@ -80,9 +80,7 @@ public class ScoreBoardTest {
 		if (partidoAux != null) {
 			partidoAux.actualizaResultados(4, 2);
 		}
-		//se actualiza partido
-		tablaResultados.actualizarPartido(0, partidoAux);
-
+		
 		// Then
 		assertEquals("4-2", partido.gameScore());
 		tablaResultados.partidosEnJuego();
