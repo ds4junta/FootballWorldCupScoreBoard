@@ -151,11 +151,12 @@ public class Game {
 	// Usage of comparator
 	public static Comparator<Game> TotalScAndInsertDateComparator = new Comparator<Game>() {
 
-		// Comparing attributes of students
+		// Comparing attributes of game
 		public int compare(Game g1, Game g2) {
 			int result = -1;
-	
+			// Comparing TotalScore
 			if (g1.getTotalScore() ==  g2.getTotalScore()) {
+				// Comparing InsertDate
 				if (g1.getInsertDate().after(g2.getInsertDate())) {
 					result = 1;
 				}
