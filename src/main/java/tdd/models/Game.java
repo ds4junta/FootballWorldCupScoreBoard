@@ -27,11 +27,11 @@ public class Game {
 	 * @param awayTeam
 	 */
 	public Game(String homeTeam, String awayTeam) {
-		setTeam1(homeTeam);
-		setTeam2(awayTeam);
-		setTeam1Score(0);
-		setTeam2Score(0);
-		setEstado(0);
+		this.setTeam1(homeTeam);
+		this.setTeam2(awayTeam);
+		this.setTeam1Score(0);
+		this.setTeam2Score(0);
+		this.setEstado(0);
 	}
 
 	/**
@@ -120,6 +120,12 @@ public class Game {
 
 	public String gameScore() {
 		return getTeam1Score()+"-"+getTeam2Score();
+	}
+
+	public void actualizaResultados(int team1Sc, int team2Sc) {
+		this.setTeam1Score(team1Sc);
+		this.setTeam2Score(team2Sc);
+		
 	}
 
 }

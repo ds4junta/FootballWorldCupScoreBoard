@@ -56,4 +56,16 @@ public class ScoreBoard {
 		return resultados.size();
 	}
 
+	public Game obtenerPartido(int i) {
+			Game partido = null;
+			if (resultados.size() > i) {
+				partido = resultados.get(i);
+			}
+			return partido;
+	}
+
+	public void actualizarPartido(int i, Game partidoAct) {
+		resultados.set(i, partidoAct);		
+	}
+
 }
