@@ -15,4 +15,6 @@ Se crea la nueva rama en el momento de la subida
 
 3. Update score. Receiving the pair score; home team score and away team score updates a game score.
 
+Se crea la nueva rama antes de realizar el desarrollo
+
 4. Get a summary of games by total score. Those games with the same total score will be returned ordered by the most recently added to our system.
