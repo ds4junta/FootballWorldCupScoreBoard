@@ -3,6 +3,9 @@
  */
 package tdd.models;
 
+import java.util.Comparator;
+import java.util.Date;
+
 /**
  * @author David
  *
@@ -22,6 +25,8 @@ public class Game {
 
 	private int totalScore;
 
+	private Date insertDate;
+
 	/**
 	 * @param homeTeam
 	 * @param awayTeam
@@ -32,6 +37,7 @@ public class Game {
 		this.setTeam1Score(0);
 		this.setTeam2Score(0);
 		this.setEstado(0);
+		this.setInsertDate(new Date());
 	}
 
 	/**
@@ -118,14 +124,46 @@ public class Game {
 		this.totalScore = totalScore;
 	}
 
+	/**
+	 * @return the insertDate
+	 */
+	public Date getInsertDate() {
+		return insertDate;
+	}
+
+	/**
+	 * @param insertDate the insertDate to set
+	 */
+	public void setInsertDate(Date insertDate) {
+		this.insertDate = insertDate;
+	}
+
 	public String gameScore() {
-		return getTeam1Score()+"-"+getTeam2Score();
+		return getTeam1Score() + "-" + getTeam2Score();
 	}
 
 	public void actualizaResultados(int team1Sc, int team2Sc) {
 		this.setTeam1Score(team1Sc);
 		this.setTeam2Score(team2Sc);
-		
+		this.setTotalScore(team1Sc + team2Sc);
 	}
+
+	// Usage of comparator
+	public static Comparator<Game> TotalScAndInsertDateComparator = new Comparator<Game>() {
+
+		// Comparing attributes of students
+		public int compare(Game g1, Game g2) {
+			int result = -1;
+	
+			if (g1.getTotalScore() ==  g2.getTotalScore()) {
+				if (g1.getInsertDate().after(g2.getInsertDate())) {
+					result = 1;
+				}
+			} else if (g1.getTotalScore() < g2.getTotalScore()) {
+				result = 1;
+			}
+			return result;
+		}
+	};
 
 }

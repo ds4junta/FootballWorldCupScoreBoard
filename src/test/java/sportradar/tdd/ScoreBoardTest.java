@@ -32,9 +32,6 @@ public class ScoreBoardTest {
 
 		assertEquals("0-0", partido.gameScore());
 		tablaResultados.partidosEnJuego();
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
 	}
 
 	// Comprobar que tras finalizar el partido, el partido desaparece de la tabla de
@@ -56,12 +53,10 @@ public class ScoreBoardTest {
 		// Then
 		assertEquals(0, tablaResultados.numeroPartidos());
 		tablaResultados.partidosEnJuego();
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
 	}
 
-	// Comprobar que tras actualizar el resultado del partido, la tabla de marcadores se encuentra actualizada
+	// Comprobar que tras actualizar el resultado del partido, la tabla de
+	// marcadores se encuentra actualizada
 	@Test
 	public void actualizarResultado() {
 		System.out.println("Test actualizarResultado()");
@@ -70,22 +65,57 @@ public class ScoreBoardTest {
 		Game partidoAux = null;
 
 		// When
-		
-		//se inserta partido
+
+		// se inserta partido
 		tablaResultados.gameAdd(partido);
 
-		//se busca partido a actualizar
+		// se busca partido a actualizar
 		partidoAux = tablaResultados.obtenerPartido(0);
 		if (partidoAux != null) {
 			partidoAux.actualizaResultados(4, 2);
 		}
-		
+
 		// Then
 		assertEquals("4-2", partido.gameScore());
 		tablaResultados.partidosEnJuego();
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
+	}
+
+	// Comprobar que tras insertar partidos y actualizar el resultado del partido,
+	// la tabla queda ordenada por goles totales y en caso de empate por fecha más
+	// actual de insercion
+	@Test
+	public void ordenarClasificacion() {
+		System.out.println("Test ordenarClasificacion()");
+		// Given
+		Game p1 = new Game("Alemania", "Inglaterra");
+		Game p2 = new Game("Argentina", "Ecuador");
+		Game p3 = new Game("Chile", "Belgica");
+		Game p4 = new Game("Brasil", "Japon");
+		Game p5 = new Game("Espa\u00f1a", "Escocia");
+		Game pAux = null;
+
+		// When
+
+		// se inserta partido
+		tablaResultados.gameAdd(p1);
+		tablaResultados.gameAdd(p2);
+		tablaResultados.gameAdd(p3);
+		tablaResultados.gameAdd(p4);
+		tablaResultados.gameAdd(p5);
+
+		// se actualizan marcadores de forma ramdon
+		tablaResultados.actualizarResultados();
+
+		System.out.println("Tabla de marcadores sin ordenar");
+		tablaResultados.partidosEnJuego();
+	
+		
+		// se ordena la tabla de resultados por goles y fecha de insercion
+		tablaResultados.ordenarClasificacion();
+
+		// Then
+		System.out.println("Tabla de marcadores ordenada");
+		tablaResultados.partidosEnJuego();
 	}
 
 }

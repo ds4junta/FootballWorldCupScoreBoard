@@ -18,3 +18,6 @@ Se crea la nueva rama en el momento de la subida
 Se crea la nueva rama antes de realizar el desarrollo
 
 4. Get a summary of games by total score. Those games with the same total score will be returned ordered by the most recently added to our system.
+
+Se crea la nueva rama (ordenarClasificacion) antes de realizar el desarrollo desde la rama actualizarPartido en lugar desde master
+
